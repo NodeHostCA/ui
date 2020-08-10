@@ -55,10 +55,15 @@ function getMetatag(name,blanksend){
 }
 
 function uiCreateRender(mode){
-  var property_radius=getMetatag("ui-radius","5");
-  createCssRule("all","iframe, img","border-radius:" + property_radius + "px;");
+  var property_elements_radius=getMetatag("ui-elements-radius","5");
+  var property_elements_align=getMetatag("ui-elements-align","center");
+  createCssRule("all","iframe, img","border-radius:" + property_elements_radius + "px;");
   createCssRule("all","iframe","box-shadow: 0 4px 10px rgba(0, 0, 0, .08);-webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, .08);-moz-box-shadow: 0 4px 10px rgba(0, 0, 0, .08);");
-  createCssRule("all",".whatever","background-color: green;");
+
+  //Center align elements like frames and images
+  if (property_elements_align=="center"){
+    createCssRule("all","iframe, img","margin:0px auto;");
+  }
 
   if (mode=="light"){
 
