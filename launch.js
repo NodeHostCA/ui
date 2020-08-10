@@ -10,15 +10,17 @@ document.write(".hide{ display:none; }");
 document.write("</style>");
 document.write("<div id='ui_loader' class='show'><div class='name'>Hello</div><div class='spinner'></div><div class='message'>This will only take a moment</div></div>");
 
-function createClass(name,rules){
-  var style = document.createElement('style');
-  style.type = 'text/css';
-  document.getElementsByTagName('head')[0].appendChild(style);
-  if(!(style.sheet||{}).insertRule){
-    (style.styleSheet || style.sheet).addRule(name, rules);
+function createCssRule(parent,name,rules){
+  if (document.getElementById("ui-style-" + parent + "")){
+    var style=document.getElementById("ui-style-" + parent + "");
   }else{
-    style.sheet.insertRule(name+"{"+rules+"}",0);
+    var style = document.createElement('style');
+    style.setAttribute("id", "ui-style-" + parent + "");
+    style.type = 'text/css';
+    document.getElementsByTagName('head')[0].appendChild(style);
   }
+
+  style.sheet.insertRule(name+"{"+rules+"}",0);
 }
 
 function setCookie(cname, cvalue, exdays) {
@@ -54,7 +56,8 @@ function getMetatag(name,blanksend){
 
 function uiCreateRender(mode){
   var property_radius=getMetatag("ui-radius","5");
-  createClass('.whatever',"background-color: green;");
+  createCssRule('iframe, img',"border-radius:" + property_radius + "px;");
+  createCssRule('.whatever',"background-color: green;");
 
   if (mode=="light"){
 
