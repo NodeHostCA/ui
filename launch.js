@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
       uiCreateRender("light");
     }
   }, 10);
-};
+});
 
 window.addEventListener("pageshow", pageShown, false);
 window.addEventListener("beforeunload", pageHidden, false);
