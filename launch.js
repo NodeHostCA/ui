@@ -56,8 +56,8 @@ function getMetatag(name,blanksend){
 
 function uiCreateRender(mode){
   var property_radius=getMetatag("ui-radius","5");
-  createCssRule('iframe, img',"border-radius:" + property_radius + "px;");
-  createCssRule('.whatever',"background-color: green;");
+  createCssRule("all","iframe, img","border-radius:" + property_radius + "px;");
+  createCssRule("all",".whatever","background-color: green;");
 
   if (mode=="light"){
 
