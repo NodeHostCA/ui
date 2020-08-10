@@ -62,7 +62,7 @@ function uiCreateRender(mode){
 
   //Center align elements like frames and images
   if (property_elements_align=="center"){
-    createCssRule("all","iframe, img","margin:0px auto;");
+    createCssRule("all","iframe, img","display: block;margin:0px auto;");
   }
 
   if (mode=="light"){
