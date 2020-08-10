@@ -42,11 +42,11 @@ function getCookie(cname) {
   return "";
 }
 
-function getMetatag(name,default){
+function getMetatag(name,blanksend){
   if (document.querySelector('meta[name="' + name + '"]')){
     return document.querySelector('meta[name="' + name + '"]').content;
   }else{
-    return default;
+    return blanksend;
   }
 }
 
